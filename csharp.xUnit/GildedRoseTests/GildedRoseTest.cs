@@ -16,14 +16,27 @@ public class GildedRoseTest
     }
 
     [Fact]
-    public void Sulfuras_Should_Do_Nothing(){
-
+    public void Sulfuras_Should_Do_Nothing()
+    {
         //arrange
         IList<Item> Items = new List<Item> { new Item { Name = Constants.Sulfuras, SellIn = 0, Quality = 0 } };
         //act
         GildedRose app = new GildedRose(Items);
         app.UpdateQuality();
         //assert
+
         Assert.Equal(0, Items[0].Quality);
+    }
+
+    [Fact]
+    public void Aged_Barie_Should_Increase_Quality_By_1()
+    {
+        //arrange
+        IList<Item> Items = new List<Item> { new Item { Name = Constants.AgedBarie, SellIn = 1, Quality = 0 } };
+        //act
+        GildedRose app = new GildedRose(Items);
+        app.UpdateQuality();
+        //assert
+        Assert.Equal(1, Items[0].Quality);
     }
 }
