@@ -51,7 +51,7 @@ public class Item
 
         if (Name != Constants.Sulfuras)
         {
-            SellIn = SellIn - 1;
+            SellIn --;
         }
 
         HandleExpiredRoses(roseIsAgedBarie, roseIsBackstage);
