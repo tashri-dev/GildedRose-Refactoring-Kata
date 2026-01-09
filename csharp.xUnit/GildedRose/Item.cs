@@ -10,72 +10,72 @@ public class Item
     public void UpdateQuality()
     {
         var roseIsAgedBarie = Name.Equals(Constants.AgedBarie);
-        if (!roseIsAgedBarie && this.Name != Constants.Backstage)
+        if (!roseIsAgedBarie && Name != Constants.Backstage)
         {
-            if (this.Quality > 0)
+            if (Quality > 0)
             {
-                if (this.Name != Constants.Sulfuras)
+                if (Name != Constants.Sulfuras)
                 {
-                    this.Quality = this.Quality - 1;
+                    Quality = Quality - 1;
                 }
             }
         }
         else
         {
-            if (this.Quality < 50)
+            if (Quality < 50)
             {
-                this.Quality = this.Quality + 1;
+                Quality = Quality + 1;
 
-                if (this.Name == Constants.Backstage)
+                if (Name == Constants.Backstage)
                 {
-                    if (this.SellIn < 11)
+                    if (SellIn < 11)
                     {
-                        if (this.Quality < 50)
+                        if (Quality < 50)
                         {
-                            this.Quality = this.Quality + 1;
+                            Quality = Quality + 1;
                         }
                     }
 
-                    if (this.SellIn < 6)
+                    if (SellIn < 6)
                     {
-                        if (this.Quality < 50)
+                        if (Quality < 50)
                         {
-                            this.Quality = this.Quality + 1;
+                            Quality = Quality + 1;
                         }
                     }
                 }
             }
         }
 
-        if (this.Name != Constants.Sulfuras)
+        if (Name != Constants.Sulfuras)
         {
-            this.SellIn = this.SellIn - 1;
+            SellIn = SellIn - 1;
         }
 
-        if (this.SellIn < 0)
+        if (SellIn < 0)
         {
-            if (this.Name != Constants.AgedBarie)
+            if (Name != Constants.AgedBarie)
             {
-                if (this.Name != Constants.Backstage)
+                if (Name != Constants.Backstage)
                 {
-                    if (this.Quality > 0)
+                    if (Quality > 0)
                     {
-                        if (this.Name != Constants.Sulfuras)
+                        if (Name != Constants.Sulfuras)
                         {
-                            this.Quality = this.Quality - 1;
+                            Quality = Quality - 1;
                         }
                     }
                 }
                 else
                 {
-                    this.Quality = this.Quality - this.Quality;
+                    Quality = Quality - Quality;
                 }
             }
             else
             {
-                if (this.Quality < 50)
+                if (Quality < 50)
                 {
-                    this.Quality = this.Quality + 1;
+                    Quality = Quality + 1;
                 }
             }
         }
