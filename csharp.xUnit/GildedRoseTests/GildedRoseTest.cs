@@ -127,6 +127,18 @@ public class GildedRoseTest
     }
     
     [Fact]
+    public void Backstage_Quality_Should_Not_Exceed_50()
+    {
+        //arrange
+        var items = new List<Item> { new Item { Name = Constants.Backstage, SellIn = 5, Quality = 48 } };
+        //act
+        var app = new GildedRose(items);
+        app.UpdateQuality();
+        //assert
+        Assert.Equal(50, items[0].Quality);
+    }
+    
+    [Fact]
     public void ConjuredItem_Quality_Should_Not_Go_Below_0()
     {
         //arrange
