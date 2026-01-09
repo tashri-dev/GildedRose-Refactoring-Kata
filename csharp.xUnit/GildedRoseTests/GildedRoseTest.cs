@@ -29,7 +29,7 @@ public class GildedRoseTest
     }
 
     [Fact]
-    public void Aged_Barie_Should_Increase_Quality_By_1()
+    public void Aged_Barie_Should_Increase_Quality_By_1_Before_SellInDate()
     {
         //arrange
         IList<Item> Items = new List<Item> { new Item { Name = Constants.AgedBarie, SellIn = 1, Quality = 0 } };
@@ -38,6 +38,30 @@ public class GildedRoseTest
         app.UpdateQuality();
         //assert
         Assert.Equal(1, Items[0].Quality);
+    }
+    [Fact]
+    public void AgedBrie_Should_Increase_Quality_By_2_After_SellDate()
+    {
+        //arrange
+        var items = new List<Item> { new Item { Name = Constants.AgedBarie, SellIn = 0, Quality = 10 } };
+        //act
+        var app = new GildedRose(items);
+        app.UpdateQuality();
+        //assert
+        Assert.Equal(12, items[0].Quality);
+        Assert.Equal(-1, items[0].SellIn);
+    }
+
+    [Fact]
+    public void AgedBrie_Quality_Should_Not_Exceed_50()
+    {
+        //arrange
+        var items = new List<Item> { new Item { Name = Constants.AgedBarie, SellIn = 5, Quality = 50 } };
+        //act
+        var app = new GildedRose(items);
+        app.UpdateQuality();
+        //assert
+        Assert.Equal(50, items[0].Quality);
     }
     
     [Fact]
