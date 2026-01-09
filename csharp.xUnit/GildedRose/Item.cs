@@ -54,6 +54,11 @@ public class Item
             SellIn = SellIn - 1;
         }
 
+        HandleExpiredRoses(roseIsAgedBarie, roseIsBackstage);
+    }
+
+    private void HandleExpiredRoses(bool roseIsAgedBarie, bool roseIsBackstage)
+    {
         if (SellIn < 0)
         {
             if (!roseIsAgedBarie)
