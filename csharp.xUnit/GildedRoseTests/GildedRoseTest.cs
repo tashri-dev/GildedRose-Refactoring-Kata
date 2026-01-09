@@ -39,4 +39,41 @@ public class GildedRoseTest
         //assert
         Assert.Equal(1, Items[0].Quality);
     }
+    
+    [Fact]
+    public void Backstage_should_Increase_Qualtiy_By_1()
+    {
+        //arrange
+        IList<Item> Items = new List<Item> { new Item { Name = Constants.Backstage, SellIn = 30, Quality = 0 } };
+        //act
+        GildedRose app = new GildedRose(Items);
+        app.UpdateQuality();
+        //assert
+        Assert.Equal(1, Items[0].Quality);
+    }
+    
+    [Fact]
+    public void Backstage_should_Increase_Qualtiy_By_2()
+    {
+        //arrange
+        IList<Item> Items = new List<Item> { new Item { Name = Constants.Backstage, SellIn = 7, Quality = 0 } };
+        //act
+        GildedRose app = new GildedRose(Items);
+        app.UpdateQuality();
+        //assert
+        Assert.Equal(2, Items[0].Quality);
+    }
+
+    [Fact]
+    public void Backstage_should_Increase_Qualtiy_By_3()
+    {
+        //arrange
+        IList<Item> Items = new List<Item> { new Item { Name = Constants.Backstage, SellIn = 4, Quality = 0 } };
+        //act
+        GildedRose app = new GildedRose(Items);
+        app.UpdateQuality();
+        //assert
+        Assert.Equal(3, Items[0].Quality);
+    }
+    
 }
