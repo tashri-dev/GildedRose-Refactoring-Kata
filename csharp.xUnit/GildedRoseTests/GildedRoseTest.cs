@@ -77,7 +77,7 @@ public class GildedRoseTest
     }
     
     [Fact]
-    public void Backstage_should_Increase_Quality_By_2()
+    public void Backstage_Should_Increase_Quality_By_2_When_10_Days_Or_Less()
     {
         //arrange
         IList<Item> Items = new List<Item> { new Item { Name = Constants.Backstage, SellIn = 7, Quality = 0 } };
