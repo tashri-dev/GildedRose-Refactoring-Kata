@@ -1,4 +1,6 @@
-﻿namespace GildedRoseKata;
+﻿using System;
+
+namespace GildedRoseKata;
 
 public class Item
 {
@@ -94,6 +96,25 @@ public class Item
         if (Quality < 50)
         {
             Quality++;
+        }
+    }
+
+    private void UpdateBackstage()
+    {
+        if (Quality < 50)
+        {
+            Quality++;
+            
+            // Additional quality increases based on proximity to sell date
+            if (SellIn <=10)
+            {
+                Quality = Math.Min(Quality + 1, 50);
+            }
+            
+            if (SellIn <= 5)
+            {
+                Quality = Math.Min(Quality + 1, 50);
+            }
         }
     }
 }
