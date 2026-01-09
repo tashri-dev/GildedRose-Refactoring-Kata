@@ -27,41 +27,20 @@ public class Item
 
     private void QualtiyUpdateManager(bool roseIsAgedBarie, bool roseIsBackstage, bool roseIsSulfuras)
     {
-        if (!roseIsAgedBarie && !roseIsBackstage)
+        switch(Name)
         {
-            if (Quality > 0)
-            {
-                if (!roseIsSulfuras)
-                {
-                    Quality --;
-                }
-            }
-        }
-        else
-        {
-            if (Quality < 50)
-            {
-                Quality++;
-
-                if (Name == Constants.Backstage)
-                {
-                    if (SellIn < 11)
-                    {
-                        if (Quality < 50)
-                        {
-                            Quality ++;
-                        }
-                    }
-
-                    if (SellIn < 6)
-                    {
-                        if (Quality < 50)
-                        {
-                            Quality ++;
-                        }
-                    }
-                }
-            }
+            case Constants.AgedBarie:
+                UpdateAgeBarie();
+                break;
+            case Constants.Backstage:
+                UpdateBackstage();
+                break;
+            case Constants.Sulfuras:
+                UpdateSulfuras();
+                break;
+            default:
+                UpdateNormalRoses(roseIsSulfuras);
+                break;
         }
     }
 
@@ -126,5 +105,13 @@ public class Item
     private void UpdateSulfuras()
     {
         
+    }
+
+    private void UpdateNormalRoses(bool isSulfuras)
+    {
+        if (Quality > 0 && !isSulfuras)
+        {
+            Quality--;
+        }
     }
 }
