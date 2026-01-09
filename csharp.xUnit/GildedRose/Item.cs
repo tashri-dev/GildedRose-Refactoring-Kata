@@ -10,7 +10,9 @@ public class Item
     public void UpdateQuality()
     {
         var roseIsAgedBarie = Name.Equals(Constants.AgedBarie);
-        if (!roseIsAgedBarie && Name != Constants.Backstage)
+        var roseIsBackstage = Name.Equals(Constants.Backstage);
+        
+        if (!roseIsAgedBarie && !roseIsBackstage)
         {
             if (Quality > 0)
             {
