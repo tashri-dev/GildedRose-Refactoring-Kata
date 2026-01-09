@@ -88,4 +88,12 @@ public class Item
             }
         }
     }
+
+    private void UpdateAgeBarie()
+    {
+        if (Quality < 50)
+        {
+            Quality++;
+        }
+    }
 }
