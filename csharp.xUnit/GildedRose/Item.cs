@@ -70,7 +70,7 @@ public class Item
                 }
                 else
                 {
-                    Quality = Quality - Quality;
+                    Quality = 0;
                 }
             }
             else
