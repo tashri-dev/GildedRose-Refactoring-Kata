@@ -11,12 +11,13 @@ public class Item
     {
         var roseIsAgedBarie = Name.Equals(Constants.AgedBarie);
         var roseIsBackstage = Name.Equals(Constants.Backstage);
+        var roseIsSulfuras = Name.Equals(Constants.Sulfuras);
         
         if (!roseIsAgedBarie && !roseIsBackstage)
         {
             if (Quality > 0)
             {
-                if (Name != Constants.Sulfuras)
+                if (!roseIsSulfuras)
                 {
                     Quality --;
                 }
@@ -49,7 +50,7 @@ public class Item
             }
         }
 
-        if (Name != Constants.Sulfuras)
+        if (!roseIsSulfuras)
         {
             SellIn --;
         }
