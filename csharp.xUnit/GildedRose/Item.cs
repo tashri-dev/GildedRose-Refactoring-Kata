@@ -56,9 +56,9 @@ public class Item
 
         if (SellIn < 0)
         {
-            if (Name != Constants.AgedBarie)
+            if (!roseIsAgedBarie)
             {
-                if (Name != Constants.Backstage)
+                if (!roseIsBackstage)
                 {
                     if (Quality > 0)
                     {
