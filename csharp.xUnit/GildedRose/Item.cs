@@ -82,7 +82,7 @@ public class Item
             {
                 if (Quality < 50)
                 {
-                    Quality = Quality + 1;
+                    Quality ++;
                 }
             }
         }
