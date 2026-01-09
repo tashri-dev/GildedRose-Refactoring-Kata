@@ -112,6 +112,20 @@ public class GildedRoseTest
         Assert.Equal(13, items[0].Quality);
         Assert.Equal(4, items[0].SellIn);
     }
+    
+    [Fact]
+    public void Backstage_Quality_Should_Drop_To_0_After_SellDate()
+    {
+        //arrange
+        var items = new List<Item> { new Item { Name = Constants.Backstage, SellIn = 0, Quality = 10 } };
+        //act
+        var app = new GildedRose(items);
+        app.UpdateQuality();
+        //assert
+        Assert.Equal(0, items[0].Quality);
+        Assert.Equal(-1, items[0].SellIn);
+    }
+    
     [Fact]
     public void ConjuredItem_Quality_Should_Not_Go_Below_0()
     {
