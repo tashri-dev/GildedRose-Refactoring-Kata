@@ -45,35 +45,23 @@ public class Item
 
     private void HandleExpiredRoses()
     {   
-        var roseIsAgedBarie = Name.Equals(Constants.AgedBarie);
-        var roseIsBackstage = Name.Equals(Constants.Backstage);
-        
-        if (SellIn < 0)
+        if (SellIn >= 0) return;
+        switch (Name)
         {
-            if (!roseIsAgedBarie)
-            {
-                if (!roseIsBackstage)
+            case Constants.AgedBarie:
+                UpdateAgeBarie();
+                break;
+            
+            case Constants.Backstage:
+                Quality = 0;
+                break;
+            
+            default:
+                if (Quality > 0 && Name != Constants.Sulfuras)
                 {
-                    if (Quality > 0)
-                    {
-                        if (Name != Constants.Sulfuras)
-                        {
-                            Quality --;
-                        }
-                    }
+                    Quality--;
                 }
-                else
-                {
-                    Quality = 0;
-                }
-            }
-            else
-            {
-                if (Quality < 50)
-                {
-                    Quality ++;
-                }
-            }
+                break;
         }
     }
 
@@ -91,7 +79,6 @@ public class Item
         {
             Quality++;
             
-            // Additional quality increases based on proximity to sell date
             if (SellIn <=10)
             {
                 Quality = Math.Min(Quality + 1, 50);
