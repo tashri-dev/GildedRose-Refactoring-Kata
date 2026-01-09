@@ -76,4 +76,16 @@ public class GildedRoseTest
         Assert.Equal(3, Items[0].Quality);
     }
     
+    [Fact]
+    public void ConjuredItem_Quality_Should_Not_Go_Below_0()
+    {
+        //arrange
+        var items = new List<Item> { new Item { Name = "Conjured", SellIn = 0, Quality = 2 } };
+        //act
+        var app = new GildedRose(items);
+        app.UpdateQuality();
+        //assert
+        Assert.Equal(0, items[0].Quality);
+    }
+
 }
