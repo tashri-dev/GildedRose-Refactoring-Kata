@@ -69,7 +69,7 @@ public class Item
                     {
                         if (Name != Constants.Sulfuras)
                         {
-                            Quality = Quality - 1;
+                            Quality --;
                         }
                     }
                 }
