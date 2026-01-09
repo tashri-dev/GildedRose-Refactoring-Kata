@@ -15,6 +15,18 @@ public class Item
         var roseIsBackstage = Name.Equals(Constants.Backstage);
         var roseIsSulfuras = Name.Equals(Constants.Sulfuras);
         
+        QualtiyUpdateManager(roseIsAgedBarie, roseIsBackstage, roseIsSulfuras);
+
+        if (!roseIsSulfuras)
+        {
+            SellIn --;
+        }
+
+        HandleExpiredRoses(roseIsAgedBarie, roseIsBackstage);
+    }
+
+    private void QualtiyUpdateManager(bool roseIsAgedBarie, bool roseIsBackstage, bool roseIsSulfuras)
+    {
         if (!roseIsAgedBarie && !roseIsBackstage)
         {
             if (Quality > 0)
@@ -51,13 +63,6 @@ public class Item
                 }
             }
         }
-
-        if (!roseIsSulfuras)
-        {
-            SellIn --;
-        }
-
-        HandleExpiredRoses(roseIsAgedBarie, roseIsBackstage);
     }
 
     private void HandleExpiredRoses(bool roseIsAgedBarie, bool roseIsBackstage)
