@@ -13,7 +13,7 @@ public class Item
         {
             if (this.Quality > 0)
             {
-                if (this.Name != "Sulfuras, Hand of Ragnaros")
+                if (this.Name != Constants.Sulfuras)
                 {
                     this.Quality = this.Quality - 1;
                 }
@@ -46,7 +46,7 @@ public class Item
             }
         }
 
-        if (this.Name != "Sulfuras, Hand of Ragnaros")
+        if (this.Name != Constants.Sulfuras)
         {
             this.SellIn = this.SellIn - 1;
         }
@@ -59,7 +59,7 @@ public class Item
                 {
                     if (this.Quality > 0)
                     {
-                        if (this.Name != "Sulfuras, Hand of Ragnaros")
+                        if (this.Name != Constants.Sulfuras)
                         {
                             this.Quality = this.Quality - 1;
                         }
