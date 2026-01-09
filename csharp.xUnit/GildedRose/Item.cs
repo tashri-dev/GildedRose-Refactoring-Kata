@@ -11,21 +11,20 @@ public class Item
 
     public void UpdateQuality()
     {
-        var roseIsAgedBarie = Name.Equals(Constants.AgedBarie);
-        var roseIsBackstage = Name.Equals(Constants.Backstage);
+     
         var roseIsSulfuras = Name.Equals(Constants.Sulfuras);
         
-        QualityUpdateManager(roseIsAgedBarie, roseIsBackstage, roseIsSulfuras);
+        QualityUpdateManager(roseIsSulfuras);
 
         if (!roseIsSulfuras)
         {
             SellIn --;
         }
 
-        HandleExpiredRoses(roseIsAgedBarie, roseIsBackstage);
+        HandleExpiredRoses();
     }
 
-    private void QualityUpdateManager(bool roseIsAgedBarie, bool roseIsBackstage, bool roseIsSulfuras)
+    private void QualityUpdateManager(bool roseIsSulfuras)
     {
         switch(Name)
         {
@@ -44,8 +43,11 @@ public class Item
         }
     }
 
-    private void HandleExpiredRoses(bool roseIsAgedBarie, bool roseIsBackstage)
-    {
+    private void HandleExpiredRoses()
+    {   
+        var roseIsAgedBarie = Name.Equals(Constants.AgedBarie);
+        var roseIsBackstage = Name.Equals(Constants.Backstage);
+        
         if (SellIn < 0)
         {
             if (!roseIsAgedBarie)
