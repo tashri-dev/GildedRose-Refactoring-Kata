@@ -9,7 +9,7 @@ public class Item
 
     public void UpdateQuality()
     {
-        if (this.Name != "Aged Brie" && this.Name != "Backstage passes to a TAFKAL80ETC concert")
+        if (this.Name != Constants.AgedBarie && this.Name != "Backstage passes to a TAFKAL80ETC concert")
         {
             if (this.Quality > 0)
             {
@@ -53,7 +53,7 @@ public class Item
 
         if (this.SellIn < 0)
         {
-            if (this.Name != "Aged Brie")
+            if (this.Name != Constants.AgedBarie)
             {
                 if (this.Name != "Backstage passes to a TAFKAL80ETC concert")
                 {
