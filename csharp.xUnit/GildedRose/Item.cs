@@ -15,7 +15,7 @@ public class Item
         var roseIsBackstage = Name.Equals(Constants.Backstage);
         var roseIsSulfuras = Name.Equals(Constants.Sulfuras);
         
-        QualtiyUpdateManager(roseIsAgedBarie, roseIsBackstage, roseIsSulfuras);
+        QualityUpdateManager(roseIsAgedBarie, roseIsBackstage, roseIsSulfuras);
 
         if (!roseIsSulfuras)
         {
@@ -25,7 +25,7 @@ public class Item
         HandleExpiredRoses(roseIsAgedBarie, roseIsBackstage);
     }
 
-    private void QualtiyUpdateManager(bool roseIsAgedBarie, bool roseIsBackstage, bool roseIsSulfuras)
+    private void QualityUpdateManager(bool roseIsAgedBarie, bool roseIsBackstage, bool roseIsSulfuras)
     {
         switch(Name)
         {
